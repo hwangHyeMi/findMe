@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mif.prunus.com.mbr.mapper.MbrMapper">
+	<select id="selectMbrChk" resultType="mif.prunus.com.mbr.vo.CustomUserDetails">
+		select 
+			MBR_SEQ AS mbrSeq
+			, MBR_ID AS mbrId
+			, MBR_PW AS password
+			, MBR_ID AS username
+			, MBR_NM AS mbrNm
+			, role
+			, roles
+			, email
+		from com_member where mbr_id = #{mbrId}
+	</select>
+</mapper>

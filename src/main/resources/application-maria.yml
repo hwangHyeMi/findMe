@@ -1,0 +1,53 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: utf-8
+
+spring:
+  application:
+    name: Spring-Boot-MyBatis
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://gaja.iptime.org:36/db_sj
+    username: user_csj
+    password: csj_1234!@
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        hibernate:
+        "[format_sql]": true            #SQL 보기 좋게 출력
+        "[user_sql_comments]": true     #SQL 생성시 주석 포함
+        "[highlight_sql]": true         #SQL 색깔
+        "[hbm2ddl.auto]": update
+    open-in-view: true
+    show-sql: true
+
+  #default 1MB
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+mybatis:
+  config-location: classpath:mybatis/config/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/**/*_maria.xml
+
+logging:
+  config: classpath:config/logback-spring.xml
+
+
+
+
+jwt:
+  header: "Authorization"
+  prefix: "Bearer "
+  secret: eyJhbGciOiJIUzUxMiJ9eyJzdWIiOiJ1c2VyIn0I2qOfhAZMGSH1pCecUH5sV2Lg2pSWNQMPzXsMcne6NJ1SlkBoirhGAmKfTYNcRyhu6nQtRzgAd6VXyttoX9A
+  tokenExpirationTime: 18000
+
+project:
+  folderPath: "files/"
+
